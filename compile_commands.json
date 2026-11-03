@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/chamssiya/UIN-campus/build",
+  "command": "/usr/bin/c++ -g -std=gnu++17 -o CMakeFiles/UIN-campus.dir/src/main.cpp.o -c /home/chamssiya/UIN-campus/src/main.cpp",
+  "file": "/home/chamssiya/UIN-campus/src/main.cpp",
+  "output": "/home/chamssiya/UIN-campus/build/CMakeFiles/UIN-campus.dir/src/main.cpp.o"
+}
+]
