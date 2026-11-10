@@ -20,6 +20,8 @@ target_compile_options(uincampus_options INTERFACE
 # ------------------------------------------------------------
 add_library(uincampus_core
     src/version.cpp
+   src/regles.cpp
+   src/saisie.cpp
 )
 
 target_include_directories(uincampus_core PUBLIC
