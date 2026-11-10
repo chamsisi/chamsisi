@@ -1,1 +1,13 @@
+# Dossiers de compilation
 build/
+
+# Fichiers temporaires
+*.o
+*.a
+*.so
+
+# Fichiers générés
+compile_commands.json
+
+# Configuration personnelle de VS Code
+.vscode/

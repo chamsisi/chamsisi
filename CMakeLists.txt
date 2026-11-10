@@ -1,5 +1,44 @@
-cmake_minimum_required(VERSION 3.16)
-project(UIN-campus LANGUAGES CXX)
-set(CMAKE_CXX_STANDARD 17)
+cmake_minimum_required(VERSION 3.25)
+project(UIN-campus VERSION 0.1.0 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-add_executable(UIN-campus src/main.cpp)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# ------------------------------------------------------------
+# Options communes
+# ------------------------------------------------------------
+add_library(uincampus_options INTERFACE)
+
+target_compile_options(uincampus_options INTERFACE
+    -Wall
+    -Wextra
+    -Wpedantic
+)
+
+# ------------------------------------------------------------
+# Bibliothèque métier
+# ------------------------------------------------------------
+add_library(uincampus_core
+    src/version.cpp
+)
+
+target_include_directories(uincampus_core PUBLIC
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+target_compile_definitions(uincampus_core PRIVATE
+    UIN_VERSION="${PROJECT_VERSION}"
+)
+
+target_link_libraries(uincampus_core PRIVATE
+    uincampus_options
+)
+# ------------------------------------------------------------
+# Application
+# ------------------------------------------------------------
+add_executable(uin-campus app/main.cpp)
+
+target_link_libraries(uin-campus PRIVATE
+    uincampus_core
+    uincampus_options
+)
